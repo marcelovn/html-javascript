@@ -24,6 +24,13 @@
         document.querySelector('p').innerHTML = 'Olá, <i>Mundo!</i>'
         console.log(document.querySelector('#primeirop').innerText)
         console.log(document.querySelector('.primeiroP').innerText)
+        //acessado a ul li e adicionado uma nova li com append
+        console.log(document.querySelector('ul'))
+        console.log(document.querySelector('ul li').innerText = '--------')
+        console.log(document.querySelectorAll('ul li')[1].innerText = '--------')
+        let ul = document.querySelector('ul')
+        let NovoLi = document.createElement('li').innerText = 'item 3'
+        ul.append(NovoLi)
     </script>
 </body>
 
