@@ -17,6 +17,12 @@
         <li>Item 1</li>
         <li>Item 2</li>
     </ul>
+    <!-- 
+        testando o onchange e o onblur 
+    -->
+    <input type="text" placeholder="Nome" onchange="" onblur="valor()" name="nome">
+
+    <input type="number" placeholder="Idade" oninput="input()" name="idade">
 
     <script>
         //Podemos acessar o dom via (id, class, e a própria tag)
@@ -31,6 +37,21 @@
         let ul = document.querySelector('ul')
         let NovoLi = document.createElement('li').innerText = 'item 3'
         ul.append(NovoLi)
+
+
+        function valor() {
+            // let valor = document.querySelector('input').value
+            let valor = document.querySelector('input[name = nome]').value
+            console.log(valor)
+        }
+
+        // function input() {
+        //     console.log(document.querySelector('input[name = idade]').value)
+        // }
+
+        document.querySelector('input[name = idade]').addEventListener('input', () => {
+            console.log(event.target.value)
+        })
     </script>
 </body>
 
