@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="enviarForm()">
+        <fieldset>
+            <label>
+                Nome:
+            </label>
+            <input type="text" placeholder="digite aqui">
+            <input type="submit" value="add">
+        </fieldset>
+    </form>
+
+    <table>
+        <tr>
+            <td>Nome</td>
+        </tr>
+    </table>
+
+    <script>
+        function enviarForm() {
+            event.preventDefault()
+            const nome = event.target.elements[1].value
+            criarTrTd(nome)
+            event.target.reset()
+        }
+
+        function criarTrTd(nome) {
+            const table = document.querySelector('table')
+
+            const addTr = document.createElement('tr')
+            const addTd = document.createElement('td').innerText = nome
+            addTr.append(addTd);
+            table.append(addTr)
+        }
+    </script>
+</body>
+
+</html>

@@ -12,31 +12,33 @@
     <p id="primeirop" class="primeiroP">
         Olá mundo
     </p>
+    <p>Adicionar algum texto na lista:</p>
+    <input type="text" placeholder="" onchange="" onblur="" name="texto">
+    <input type="button" value="ADD" name="add">
+    <!-- <input type="number" placeholder="Idade" oninput="input()" name="idade"> -->
 
-    <ul>
+    <ul title="UL">
         <li>Item 1</li>
         <li>Item 2</li>
     </ul>
     <!-- 
         testando o onchange e o onblur 
     -->
-    <input type="text" placeholder="Nome" onchange="" onblur="valor()" name="nome">
-
-    <input type="number" placeholder="Idade" oninput="input()" name="idade">
 
     <script>
         //Podemos acessar o dom via (id, class, e a própria tag)
         document.querySelector('p').innerText = 'Olá, Mundo!'
         document.querySelector('p').innerHTML = 'Olá, <i>Mundo!</i>'
+        document.querySelector('p[id = primeirop]').innerText = 'Olá, Marcelo!'
         console.log(document.querySelector('#primeirop').innerText)
         console.log(document.querySelector('.primeiroP').innerText)
         //acessado a ul li e adicionado uma nova li com append
         console.log(document.querySelector('ul'))
-        console.log(document.querySelector('ul li').innerText = '--------')
-        console.log(document.querySelectorAll('ul li')[1].innerText = '--------')
-        let ul = document.querySelector('ul')
-        let NovoLi = document.createElement('li').innerText = 'item 3'
-        ul.append(NovoLi)
+        // console.log(document.querySelector('ul li').innerText = '--------')
+        // console.log(document.querySelectorAll('ul li')[1].innerText = '--------')
+        // let ul = document.querySelector('ul')
+        // let NovoLi = document.createElement('li').innerText = 'item 3'
+        // ul.append(NovoLi)
 
 
         function valor() {
@@ -49,8 +51,18 @@
         //     console.log(document.querySelector('input[name = idade]').value)
         // }
 
-        document.querySelector('input[name = idade]').addEventListener('input', () => {
-            console.log(event.target.value)
+        // document.querySelector('input[name = idade]').addEventListener('input', () => {
+        //     console.log(event.target.value)
+        // })
+
+        document.querySelector('input[type = button]').addEventListener('click', () => {
+            let texto = document.querySelector('input[name = texto]').value
+            let ul = document.querySelector('ul')
+            let li = document.createElement('li')
+            li.innerHTML = texto + " <button id='x'>x</button>"
+            ul.append(li)
+            console.log(texto)
+            document.querySelector('button[id = x]').addEventListener('click', () => console.log('Ola mundo'))
         })
     </script>
 </body>
